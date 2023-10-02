@@ -1,0 +1,63 @@
+<!-- <p>form works!</p>
+<form>
+    <div class="form-item">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" [(ngModel)]="model.name" required>
+    </div>
+    <div class="form-item">
+        <label for="nif">Nif:</label>
+        <input type="text" id="nif" required>
+    </div>
+    <div class="form-item">
+        <label for="email">Email:</label>
+        <input type="text" id="name" required>
+    </div>
+    <div class="form-item">
+        <label for="password">Password:</label>
+        <input type="text" id="name" required>
+    </div>
+    <div class="form-item">
+        <label for="privacity">Política de privacidad:</label>
+        <input type="boolean" id="name" required>
+    </div>
+    <button class="form-button" type="submit">Enviar</button>
+</form>
+ -->
+
+
+ <form [formGroup]="Form" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" formControlName="name">
+      <div *ngIf="Form.get('name').hasError('required') && Form.get('name').touched" class="error">
+      </div>
+    </div>
+    <div>
+        <label for="nif">NIF:</label>
+        <input type="text" id="nif" formControlName="nif">
+        <div *ngIf="Form.get('nif').hasError('required') && Form.get('nif').touched" class="error">
+        </div>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="text" id="email" formControlName="email">
+        <div *ngIf="Form.get('email').hasError('required') && Form.get('nif').touched" class="error">
+        </div>
+      </div>
+      
+  
+  
+
+  
+    <div>
+      <label for="privacyPolicy">
+        <input type="checkbox" id="privacyPolicy" formControlName="privacyPolicy"> Aceptar política de privacidad
+      </label>
+      <div *ngIf="Form.get('privacyPolicy').hasError('required') && Form.get('privacyPolicy').touched" class="error">
+        Debes aceptar la política de privacidad.
+      </div>
+    </div>
+  
+    <button type="submit">Registrarse</button>
+  </form>
+  
